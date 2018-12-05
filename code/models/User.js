@@ -5,8 +5,8 @@ const userSchema = new Schema({
   name: {type: String, required: true},
   email: {type: String, required: true},
   password: String,
-  dateOfBirth: {type: Date, required: true},
-  yearsOfExperience: {type: Number, required: true},
+  dateBirth: {type: Date, required: true},
+  yearsExperience: {type: Number, required: true},
   isOwner: Boolean,
   Role: {type: String, required: true, enum: ["Administrator", "User"]}
 }, {
