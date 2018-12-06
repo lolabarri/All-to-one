@@ -1,29 +1,21 @@
 <h2>Login</h2>
 
 <form action="/auth/login" method="POST" id="form-container">
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  <label for="email">Email</label>
+  <input id="email" type="text" name="email" placeholder="jonsnow@thrones.com">
+
+  <br><br>
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
-  <div class="error-message">{{ message }}</div>
+    <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <button type="login" class="btn btn-primary">Login</button>
+  <br><br>
+
+  <button>Login</button>
 
   <p class="account-message">
     Don't have an account yet?

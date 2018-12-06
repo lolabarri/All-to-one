@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/User");
 
 // Bcrypt to encrypt passwords
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
@@ -29,17 +29,17 @@ router.post("/signup", (req, res, next) => {
   const password = req.body.password;
   const dateBirth = req.body.dateBirth;
   const yearsExperience = req.body.yearsExperience;
-  if (name === "" || email === "" || password === "" || dateBirth === "" || yearsExperience === "") {
+  if (name === "" || password === "" || email === "") {
     res.render("auth/signup", { message: "There cannot be empty fields" });
     return;
   }
 
-  User.findOne({ email }, "email", (err, email) => {
-    if (email !== null) {
-      res.render("auth/signup", { message: "That email has already been used" });
+  User.findOne({ email }, "email", (err, user) => {
+    if (user !== null) {
+      res.render("auth/signup", { message: "The email already exists" });
       return;
     }
-    
+
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
@@ -48,7 +48,9 @@ router.post("/signup", (req, res, next) => {
       email,
       password: hashPass,
       dateBirth,
-      yearsExperience
+      yearsExperience,
+      isOwner: false,
+      role: "User"
     });
 
     newUser.save()

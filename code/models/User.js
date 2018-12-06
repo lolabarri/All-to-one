@@ -8,7 +8,7 @@ const userSchema = new Schema({
   dateBirth: {type: Date, required: true},
   yearsExperience: {type: Number, required: true},
   isOwner: Boolean,
-  Role: {type: String, required: true, enum: ["Administrator", "User"]}
+  role: {type: String, required: true, enum: ["Administrator", "User"]}
 }, {
   timestamps: {
     createdAt: 'created_at',
