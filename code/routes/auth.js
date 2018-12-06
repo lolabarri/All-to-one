@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/User");
 
 // Bcrypt to encrypt passwords
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
 
@@ -24,25 +24,31 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
+  const name = req.body.name;
+  const email = req.body.email;
   const password = req.body.password;
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  const dateBirth = req.body.dateBirth;
+  const yearsExperience = req.body.yearsExperience;
+  if (name === "" || email === "" || password === "" || dateBirth === "" || yearsExperience === "") {
+    res.render("auth/signup", { message: "There cannot be empty fields" });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
-    if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+  User.findOne({ email }, "email", (err, email) => {
+    if (email !== null) {
+      res.render("auth/signup", { message: "That email has already been used" });
       return;
     }
-
+    
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username,
-      password: hashPass
+      name,
+      email,
+      password: hashPass,
+      dateBirth,
+      yearsExperience
     });
 
     newUser.save()

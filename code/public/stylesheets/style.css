@@ -11,4 +11,7 @@ a {
 .content {
   padding: 5vw; }
 
+#error-message {
+  color: red; }
+
 /*# sourceMappingURL=style.css.map */
