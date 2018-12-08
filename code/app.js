@@ -81,9 +81,10 @@ app.use(flash());
 require("./passport")(app);
 
 const index = require("./routes/index");
+const sharing = require("./routes/sharing");
+const auth = require("./routes/auth");
 app.use("/", index);
-
-const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
+app.use("/sharing", sharing);
+app.use("/auth", auth);
 
 module.exports = app;
