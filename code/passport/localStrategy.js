@@ -5,15 +5,11 @@ const bcrypt = require("bcryptjs");
 
 passport.use(
   new LocalStrategy(
-    {
-      usernameField: "email",
-      passwordField: "password"
-    },
-    (username, password, next) => {
-      User.findOne({ username })
+    (email, password, next) => {
+      User.findOne({ email })
         .catch(e => next(e))
         .then(user => {
-          if (!user) throw new Error("Incorrect user");
+          if (!user) throw new Error("Incorrect email");
           return user;
         })
         .then(user => {

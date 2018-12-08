@@ -1,13 +1,13 @@
 <h2>Login</h2>
 
 <form action="/auth/login" method="POST" id="form-container">
-  <label for="email">Email</label>
-  <input id="email" type="text" name="email" placeholder="jonsnow@thrones.com">
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" name="username" placeholder="jonsnow@thrones.com">
 
   <br><br>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <label for="password-input">Password</label>
+  <input id="password-input" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
