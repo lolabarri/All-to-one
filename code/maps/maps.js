@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+let map;
 function startMap() {
-  const ateneo = {
-  	lat: 40.433775,
-  	lng: 3.7190415};
-  const map = new google.maps.Map(
+  map = new google.maps.Map(
     document.getElementById('map'),
     {
-      zoom: 15,
-      center: ateneo
+      center: {lat: 40.433779, lng: -3.716794},
+      zoom: 8
     }
   );
 }
@@ -22,6 +20,6 @@ const myMarker = new google.maps.Marker({
   title: "I'm here"
 });
 
-startMap();
+// startMap();
 
 }, false);
