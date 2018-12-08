@@ -83,8 +83,10 @@ require("./passport")(app);
 const index = require("./routes/index");
 const sharing = require("./routes/sharing");
 const auth = require("./routes/auth");
+const crudCars = require("./routes/crudCars");
 app.use("/", index);
 app.use("/sharing", sharing);
 app.use("/auth", auth);
+app.use("/cars", crudCars);
 
 module.exports = app;
