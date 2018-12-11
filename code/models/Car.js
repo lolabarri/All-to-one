@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const carSchema = new Schema({
-  carBrand: {type: String, required: true},
+  carMake: {type: String, required: true},
   model: {type: String, required: true},
   licensePlate: String,
   fuel: {type: String, required: true, enum: ["Regular", "Diesel", "Regular-hybrid", "Diesel-hybrid", "Electric"]},

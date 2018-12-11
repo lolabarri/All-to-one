@@ -2,115 +2,121 @@ const express = require("express");
 const router = express.Router();
 const Car = require("../models/Car");
 
-// GET => render the form to create a new restaurant
-router.get('/new', (req, res, next) => {
-  res.render('cars/new');
+// GET => render the form to create a new car
+router.get("/new", (req, res, next) => {
+  res.render("cars/new");
 });
 
-// POST => to create new restaurant and save it to the DB
-router.post('/', (req, res, next) => {
+// POST => to create new car and save it to the DB
+router.post("/", (req, res, next) => {
   // add location object here
-  
 
-	const newCar = new Car({
-		name: req.body.name,
-		description: req.body.description
-	});
+  const newCar = new Car({
+    carMake: req.body.carMake,
+    model: req.body.model,
+    licensePlate: req.body.licensePlate,
+    fuel: req.body.fuel,
+    insurance: req.body.insurance,
+    other: req.body.other
+  });
 
-	newCar.save((error) => {
-		if (error) { 
-			next(error); 
-		} else { 
-			res.redirect('/restaurants');
-		}
-	});
+  newCar.save(error => {
+    if (error) {
+      next(error);
+    } else {
+      res.redirect("sharing/dashboard");
+    }
+  });
 });
 
-// GET => to retrieve all the restaurants from the DB
-router.get('/', (req, res, next) => {
-	Car.find({},(error, restaurantsFromDB) => {
-		if (error) { 
-			next(error); 
-		} else { 
-			res.render('restaurants/index', { restaurants: restaurantsFromDB });
-		}
-	});
+// GET => to retrieve all the cars from the DB
+router.get("/", (req, res, next) => {
+  Car.find({}, (error, carsFromDB) => {
+    if (error) {
+      next(error);
+    } else {
+      res.render("cars/index", { cars: carsFromDB });
+    }
+  });
 });
 
-// GET => get the form pre-filled with the details of one restaurant
-router.get('/:restaurant_id/edit', (req, res, next) => {
-	Car.findById(req.params.restaurant_id, (error, restaurant) => {
-		if (error) {
-			next(error);
-		} else {
-			res.render('restaurants/update', { restaurant });
-		}
-	});
+// GET => get the form pre-filled with the details of one car
+router.get("/:car_id/edit", (req, res, next) => {
+  Car.findById(req.params.car_id, (error, car) => {
+    if (error) {
+      next(error);
+    } else {
+      res.render("cars/update", { car });
+    }
+  });
 });
 
 // POST => save updates in the database
-router.post('/:restaurant_id', (req, res, next) => {
-	Car.findById(req.params.restaurant_id, (error, restaurant) => {
-		if (error) { 
-      next(error); 
+router.post("/:car_id", (req, res, next) => {
+  Car.findById(req.params.car_id, (error, car) => {
+    if (error) {
+      next(error);
     } else {
-			restaurant.name        = req.body.name;
-			restaurant.description = req.body.description;
-			restaurant.save(error => {
-				if (error) { 
-					next(error); 
-				} else { 
-					res.redirect(`/restaurants/${req.params.restaurant_id}`); 
-				}
-			});
-		}
-	});
+      car.carMake = req.body.carMake;
+      car.model = req.body.model;
+      car.licensePlate = req.body.licensePlate;
+      car.fuel = req.body.fuel;
+      car.insurance = req.body.insurance;
+      car.other = req.body.other;
+      restaurant.save(error => {
+        if (error) {
+          next(error);
+        } else {
+          res.redirect(`/cars/${req.params.car_id}`);
+        }
+      });
+    }
+  });
 });
 
-// DELETE => remove the restaurant from the DB
-router.get('/:restaurant_id/delete', (req, res, next) => {
-	Car.remove({ _id: req.params.restaurant_id }, function(error, restaurant) {
-		if (error) {
-			next(error);
-		} else {
-			res.redirect('/restaurants');
-		}
-	});
+// DELETE => remove the car from the DB
+router.get("/:car_id/delete", (req, res, next) => {
+  Car.remove({ _id: req.params.car_id }, function(error, car) {
+    if (error) {
+      next(error);
+    } else {
+      res.redirect("/cars");
+    }
+  });
 });
-
 
 // to see raw data in your browser, just go on: http://localhost:3000/api
-router.get('/api', (req, res, next) => {
-	Car.find({}, (error, allRestaurantsFromDB) => {
-		if (error) { 
-			next(error); 
-		} else { 
-			res.status(200).json({ restaurants: allRestaurantsFromDB });
-		}
-	});
+router.get("/api", (req, res, next) => {
+  Car.find({}, (error, allCarsFromDB) => {
+    if (error) {
+      next(error);
+    } else {
+      res.status(200).json({ cars: allCarsFromDB });
+    }
+  });
 });
 
 // to see raw data in your browser, just go on: http://localhost:3000/api/someIdHere
-router.get('/api/:id', (req, res, next) => {
-	let restaurantId = req.params.id;
-	Car.findOne({_id: restaurantId}, (error, oneRestaurantFromDB) => {
-		if (error) { 
-			next(error) 
-		} else { 
-			res.status(200).json({ restaurant: oneRestaurantFromDB }); 
-		}
-	});
+router.get("/api/:id", (req, res, next) => {
+  let carId = req.params.id;
+  Car.findOne({ _id: carId }, (error, oneCarFromDB) => {
+    if (error) {
+      next(error);
+    } else {
+      res.status(200).json({ car: oneCarFromDB });
+    }
+  });
 });
 
-// GET => get the details of one restaurant
-router.get('/:restaurant_id', (req, res, next) => {
-	Car.findById(req.params.restaurant_id, (error, restaurant) => {
-		if (error) {
-			next(error);
-		} else {
-			res.render('restaurants/show', { restaurant: restaurant });
-		}
-	});
+// GET => get the details of one car
+router.get("/:car_id", (req, res, next) => {
+  Car.findById(req.params.car_id, (error, car) => {
+    if (error) {
+      next(error);
+    } else {
+      res.render("cars/show", { car: car });
+    }
+  });
 });
 
 module.exports = router;
