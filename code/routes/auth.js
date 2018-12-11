@@ -35,7 +35,6 @@ router.post("/signup", (req, res, next) => {
       password: hashPass,
       dateBirth,
       yearsExperience,
-      isOwner: false,
       role: "User"
     });
 

@@ -8,36 +8,37 @@ router.get("/new", (req, res, next) => {
 });
 
 // POST => to create new car and save it to the DB
-router.post("/", (req, res, next) => {
+router.post("/new", (req, res, next) => {
   // add location object here
 
   const newCar = new Car({
     carMake: req.body.carMake,
     model: req.body.model,
     licensePlate: req.body.licensePlate,
-    fuel: req.body.fuel,
+		fuel: req.body.fuel,
+		purchaseYear: req.body.purchaseYear,
+		owner: "No one",
     insurance: req.body.insurance,
-    other: req.body.other
+		other: req.body.other,
   });
 
   newCar.save(error => {
     if (error) {
       next(error);
     } else {
-      res.redirect("sharing/dashboard");
+      res.redirect("../sharing/dashboard");
     }
   });
 });
 
-// GET => to retrieve all the cars from the DB
-router.get("/", (req, res, next) => {
-  Car.find({}, (error, carsFromDB) => {
-    if (error) {
-      next(error);
-    } else {
+router.get('/', (req, res, next) => {
+  Car.find()
+    .then(carsFromDB => {
       res.render("cars/index", { cars: carsFromDB });
-    }
-  });
+    })
+    .catch(error => {
+      next(error);
+    })
 });
 
 // GET => get the form pre-filled with the details of one car

@@ -30,7 +30,6 @@ let users = [
     password: bcrypt.hashSync("javi", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1986-08-01"),
     yearsExperience: 14,
-    isOwner: true,
     role: "User"
   },
   {
@@ -39,7 +38,6 @@ let users = [
     password: bcrypt.hashSync("dani", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1988-01-13"),
     yearsExperience: 12,
-    isOwner: true,
     role: "User"
   },
   {
@@ -48,7 +46,6 @@ let users = [
     password: bcrypt.hashSync("leti", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1989-02-24"),
     yearsExperience: 4,
-    isOwner: false,
     role: "Administrator"
   },
   {
@@ -57,7 +54,6 @@ let users = [
     password: bcrypt.hashSync("andres", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1990-09-21"),
     yearsExperience: 9,
-    isOwner: false,
     role: "User"
   }
 ];

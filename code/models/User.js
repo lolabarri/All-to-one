@@ -7,7 +7,6 @@ const userSchema = new Schema({
   password: String,
   dateBirth: {type: Date, required: true},
   yearsExperience: {type: Number, required: true},
-  isOwner: Boolean,
   role: {type: String, required: true, enum: ["Administrator", "User"]}
 }, {
   timestamps: {

@@ -5,11 +5,11 @@ const carSchema = new Schema({
   carMake: {type: String, required: true},
   model: {type: String, required: true},
   licensePlate: String,
-  fuel: {type: String, required: true, enum: ["Regular", "Diesel", "Regular-hybrid", "Diesel-hybrid", "Electric"]},
+  fuel: {type: String, required: true},
   purchaseYear: {type: Number, required: true},
-  owner: {type: String, required: true},
+  owner: {type: Schema.Types.ObjectId, ref:'User'},
   insurance: {type: String, required: true},
-  other: {type: String},
+  other: String,
 }, {
   timestamps: {
     createdAt: 'created_at',

@@ -1,11 +1,11 @@
 <h1>{{title}}</h1>
 <div class="info">
     <h3>List of all cars</h3>
-    <a href="/cars/new">Create new restaurant</a>
+    <a href="/cars/new">Create new car</a>
     <ul>
         {{#each cars}}
         <li>
-            <a href="/cars/{{ this._id}}">{{ this.name}}</a>
+            <a href="/cars/{{ this._id}}">{{ this.carMake}}</a>
             |
             <a href="/cars/{{ this._id}}/delete">Delete</a>
         </li>

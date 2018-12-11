@@ -1,23 +1,26 @@
-<h2>Signup</h2>
-
+<h2>Create car</h2>
+<br>
 <form action="/cars/new" method="POST" id="form-container">
   <label for="carMake">Car make</label>
-  <input id="carMake" type="text" name="carMake" placeholder="Jon Snow">
+  <input id="carMake" type="text" name="carMake" placeholder="Volkswagen">
   <label for="model">Model</label>
-  <input id="model" type="text" name="model" placeholder="jonsnow@thrones.com">
+  <input id="model" type="text" name="model" placeholder="Golf">
 
-  <br><br>
+  <br>
 
   <label for="licensePlate">License plate</label>
-  <input id="licensePlate" type="text" name="licensePlate" placeholder="Your licensePlate">
+  <input id="licensePlate" type="text" name="licensePlate" placeholder="1234GGG">
   <label for="fuel">Fuel</label>
-  <input id="fuel" type="date" name="fuel">
+  <input id="fuel" type="text" name="fuel" placeholder="Diesel">
+  <br>
   <label for="purchaseYear">Purchase Year</label>
   <input id="purchaseYear" type="text" name="purchaseYear" placeholder="2005">
+  <br>
   <label for="insurance">Kind of insurance</label>
-  <input id="insurance" type="text" name="insurance" placeholder="2005">
+  <input id="insurance" type="text" name="insurance" placeholder="Only for people up to 25 years old">
+  <br>
   <label for="other">Any interesting things to know</label>
-  <input id="other" type="text" name="other" placeholder="2005">
+  <input id="other" type="text" name="other" placeholder="Automatic">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
