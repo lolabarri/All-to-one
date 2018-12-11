@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 .content {
@@ -22,4 +22,20 @@ a {
 #map {
   height: 500px;
   width: 100%;
- }
+}
+
+button {
+  border-radius: 5px;
+}
+
+input {
+  border-radius: 5px;
+}
+
+#insurance {
+  width: 30vw;
+}
+
+#other {
+  width: 23vw;
+}
