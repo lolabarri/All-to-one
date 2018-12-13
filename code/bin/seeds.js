@@ -72,7 +72,7 @@ let cars = [
     owner: "5c124fc6aa6eaa963c8c2305",
     insurance: "Everybody can use it",
     other: "Be careful, it travels through time",
-    location: [-3.719083, 40.434546]
+    location: {type: "Point", coordinates: [-3.719083, 40.434546]}
   },
   {
     carMake: "Aston Martin",
@@ -83,7 +83,7 @@ let cars = [
     owner: "5c124fc6aa6eaa963c8c2305",
     insurance: "You can crash it if you want",
     other: "My name is Bond, James Bond",
-    location: [-3.676668, 40.438084]
+    location: {type: "Point", coordinates: [-3.676668, 40.438084]}
   }
 ];
 
@@ -194,10 +194,8 @@ User.deleteMany()
     throw err;
   });
 
-Car.deleteMany()
-  .then(() => {
-    return Car.create(cars);
-  })
+
+ Car.create(cars)
   .then(carsCreated => {
     console.log(`${carsCreated.length} cars created with the following id:`);
     console.log(carsCreated.map(u => u._id));
@@ -207,6 +205,7 @@ Car.deleteMany()
     mongoose.disconnect();
   })
   .catch(err => {
+    console.log(err)
     mongoose.disconnect();
-    throw err;
+    // throw err;
   });

@@ -11,7 +11,7 @@ const carSchema = new Schema(
     owner: { type: Schema.Types.ObjectId, ref: 'User' },
     insurance: { type: String, required: true },
     other: String,
-    location: {type: {type: String}, coordinates: [Number]}
+    location: {type: {type: String}, coordinates: {type: [Number]}, default: [0,0]}
   },
   {
     timestamps: {
