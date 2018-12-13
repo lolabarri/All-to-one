@@ -19,7 +19,8 @@ router.post("/new", (req, res, next) => {
 		purchaseYear: req.body.purchaseYear,
 		owner: "No one",
     insurance: req.body.insurance,
-		other: req.body.other,
+    other: req.body.other,
+    location: location,
   });
 
   newCar.save(error => {
