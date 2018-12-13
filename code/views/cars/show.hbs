@@ -1,9 +1,10 @@
 <h3 id="carName" data-id="{{ car.id}}">{{ car.carMake}}</h3>
-<p>{{ car.model}}</p>
-<p>{{ car.licensePlate}}</p>
-<p>{{ car.fuel}}</p>
-<p>{{ car.purchaseYear}}</p>
-<p>{{ car.insurance}}</p>
-<p>{{ car.other}}</p>
+<p>Model: {{ car.model}}</p>
+<p>License plate: {{ car.licensePlate}}</p>
+<p>Fuel: {{ car.fuel}}</p>
+<p>Purchase year: {{ car.purchaseYear}}</p>
+<p>Owner: {{ car.owner.name}}</p>
+<p>Insurance: {{ car.insurance}}</p>
+<p>Other: {{ car.other}}</p>
 <a href="/cars/{{car._id}}/edit">Edit this car</a>
 <a href="/cars">Go back to the list</a>

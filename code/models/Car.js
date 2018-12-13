@@ -8,7 +8,7 @@ const carSchema = new Schema(
     licensePlate: String,
     fuel: { type: String, required: true },
     purchaseYear: { type: Number, required: true },
-    owner: {type: Schema.Types.ObjectId, ref: "User" },
+    owner: { type: Schema.Types.ObjectId, ref: 'User' },
     insurance: { type: String, required: true },
     other: String,
     location: {type: {type: String}, coordinates: [Number]}

@@ -69,19 +69,19 @@ let cars = [
     licensePlate: "1234BTF",
     fuel: "Regular",
     purchaseYear: 1982,
-    owner: "5c124cbd0fd2378e596aae66",
+    owner: "5c124fc6aa6eaa963c8c2305",
     insurance: "Everybody can use it",
     other: "Be careful, it travels through time",
     location: [-3.719083, 40.434546]
   },
   {
-        carMake: "Aston Martin",
-        model: "DB-5",
-        licensePlate: "1234BJB",
-        fuel: "Diesel",
-        purchaseYear: 1942,
-        owner: "5c124cbd0fd2378e596aae67",
-        insurance: "You can crash it if you want",
+    carMake: "Aston Martin",
+    model: "DB-5",
+    licensePlate: "1234BJB",
+    fuel: "Diesel",
+    purchaseYear: 1942,
+    owner: "5c124fc6aa6eaa963c8c2305",
+    insurance: "You can crash it if you want",
     other: "My name is Bond, James Bond",
     location: [-3.676668, 40.438084]
   }

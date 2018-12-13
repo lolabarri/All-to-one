@@ -15,12 +15,12 @@ router.post("/new", (req, res, next) => {
     carMake: req.body.carMake,
     model: req.body.model,
     licensePlate: req.body.licensePlate,
-		fuel: req.body.fuel,
-		purchaseYear: req.body.purchaseYear,
-		owner: "No one",
+    fuel: req.body.fuel,
+    purchaseYear: req.body.purchaseYear,
+    owner: "No one",
     insurance: req.body.insurance,
     other: req.body.other,
-    location: location,
+    location: location
   });
 
   newCar.save(error => {
@@ -32,14 +32,14 @@ router.post("/new", (req, res, next) => {
   });
 });
 
-router.get('/', (req, res, next) => {
+router.get("/", (req, res, next) => {
   Car.find()
     .then(carsFromDB => {
       res.render("cars/index", { cars: carsFromDB });
     })
     .catch(error => {
       next(error);
-    })
+    });
 });
 
 // GET => get the form pre-filled with the details of one car
@@ -111,14 +111,31 @@ router.get("/api/:id", (req, res, next) => {
 });
 
 // GET => get the details of one car
+// router.get("/:car_id", (req, res, next) => {
+//   Car.findById(req.params.car_id, (error, car) => {
+//     if (error) {
+//       next(error);
+//     } else {
+//       res.render("cars/show", { car: car });
+//     }
+//   });
+// });
+
 router.get("/:car_id", (req, res, next) => {
-  Car.findById(req.params.car_id, (error, car) => {
-    if (error) {
-      next(error);
-    } else {
+  let carId = req.params.car_id;
+  // if (!/^[0-9a-fA-F]{24}$/.test(carId)) {
+  //   return res.status(404).render("not-found");
+  // }
+  Car.findById(carId)
+    .populate( {path: 'owner', select: 'name' })
+    .then(car => {
+      console.log(car);
+      if (!car) {
+        return res.status(404).render("not-found");
+      }
       res.render("cars/show", { car: car });
-    }
-  });
+    })
+    .catch(next);
 });
 
 module.exports = router;
