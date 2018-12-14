@@ -11,8 +11,16 @@ router.use((req, res, next) => {
   res.redirect("/auth/login");
 });
 
-router.get("/dashboard", (req, res, next) => {
-  res.render("sharing/dashboard");
-});
+
+
+router.get("/:user_id", (req, res, next) => {
+    User.findById(req.params.user_id, (error, user) => {
+      if (error) {
+        next(error);
+      } else {
+        res.render("users/dashboard", { user: user });
+      }
+    });
+  });
 
 module.exports = router;

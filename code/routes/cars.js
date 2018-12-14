@@ -2,6 +2,14 @@ const express = require("express");
 const router = express.Router();
 const Car = require("../models/Car");
 
+router.use((req, res, next) => {
+  if(req.user) {
+      next();
+      return;
+  }
+  res.redirect("/auth/login");
+});
+
 // GET => render the form to create a new car
 router.get("/new", (req, res, next) => {
   res.render("cars/new");
@@ -27,7 +35,7 @@ router.post("/new", (req, res, next) => {
     if (error) {
       next(error);
     } else {
-      res.redirect("../sharing/dashboard");
+      res.redirect("../users/dashboard");
     }
   });
 });
@@ -111,6 +119,7 @@ router.get("/api/:id", (req, res, next) => {
 });
 
 // GET => get the details of one car
+
 // router.get("/:car_id", (req, res, next) => {
 //   Car.findById(req.params.car_id, (error, car) => {
 //     if (error) {
@@ -121,15 +130,13 @@ router.get("/api/:id", (req, res, next) => {
 //   });
 // });
 
+// GET => get the details of one car
+
 router.get("/:car_id", (req, res, next) => {
   let carId = req.params.car_id;
-  // if (!/^[0-9a-fA-F]{24}$/.test(carId)) {
-  //   return res.status(404).render("not-found");
-  // }
   Car.findById(carId)
     .populate( {path: 'owner', select: 'name' })
     .then(car => {
-      console.log(car);
       if (!car) {
         return res.status(404).render("not-found");
       }

@@ -81,12 +81,12 @@ app.use(flash());
 require("./passport")(app);
 
 const index = require("./routes/index");
-const sharing = require("./routes/sharing");
+const users = require("./routes/users");
 const auth = require("./routes/auth");
-const crudCars = require("./routes/crudCars");
+const cars = require("./routes/cars");
 app.use("/", index);
-app.use("/sharing", sharing);
+app.use("/users", users);
 app.use("/auth", auth);
-app.use("/cars", crudCars);
+app.use("/cars", cars);
 
 module.exports = app;

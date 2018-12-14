@@ -33,7 +33,7 @@ let users = [
     email: "javi@olabarri.com",
     password: bcrypt.hashSync("javi", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1986-08-01"),
-    yearsExperience: 14,
+    yearsExperience: new Date("2005-08-01"),
     role: "User"
   },
   {
@@ -41,7 +41,7 @@ let users = [
     email: "dani@olabarri.com",
     password: bcrypt.hashSync("dani", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1988-01-13"),
-    yearsExperience: 12,
+    yearsExperience: new Date("2009-08-01"),
     role: "User"
   },
   {
@@ -49,7 +49,7 @@ let users = [
     email: "leti@olabarri.com",
     password: bcrypt.hashSync("leti", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1989-02-24"),
-    yearsExperience: 4,
+    yearsExperience: new Date("2014-08-01"),
     role: "Administrator"
   },
   {
@@ -57,7 +57,7 @@ let users = [
     email: "andres@olabarri.com",
     password: bcrypt.hashSync("andres", bcrypt.genSaltSync(bcryptSalt)),
     dateBirth: new Date("1990-09-21"),
-    yearsExperience: 9,
+    yearsExperience: new Date("2010-08-01"),
     role: "User"
   }
 ];

@@ -1,0 +1,31 @@
+  <h3>Edit car</h3>
+
+<form action="/users/{{ user._id}}" method="POST" id="form-container">
+  <label for="carMake">Car make</label>
+  <input id="carMake" type="" name="carMake" placeholder="Car Make" value="{{car.carMake}}">
+  <label for="model">Model</label>
+  <input id="model" type="" name="model" placeholder="model" value="{{car.model}}">
+
+  <br><br>
+
+  <label for="licensePlate">License plate</label>
+  <input id="licensePlate" type="" name="licensePlate" placeholder="Your licensePlate" value="{{car.licensePlate}}">
+  <label for="fuel">Fuel</label>
+  <input id="fuel" type="date" name="fuel" value="{{car.fuel}}">
+  <label for="purchaseYear">Purchase Year</label>
+  <input id="purchaseYear" type="" name="purchaseYear" placeholder="2005" value="{{car.purchaseYear}}">
+  <label for="insurance">Kind of insurance</label>
+  <input id="insurance" type="" name="insurance" placeholder="For people over 25 years old" value="{{car.insurance}}">
+  <label for="other">Any interesting things to know</label>
+  <input id="other" type="" name="other" placeholder="Automatic" value="{{car.other}}">
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button>Create car</button>
+
+ 
+</form>

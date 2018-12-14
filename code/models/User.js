@@ -7,7 +7,7 @@ const userSchema = new Schema(
     email: { type: String, required: true },
     password: String,
     dateBirth: { type: Date, required: true },
-    yearsExperience: { type: Number, required: true },
+    yearsExperience: { type: Date, required: true },
     role: { type: String, required: true, enum: ["Administrator", "User"] }
   },
   {

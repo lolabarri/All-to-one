@@ -19,9 +19,9 @@ document.addEventListener(
               lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent("This is you");
-            infoWindow.open(map);
+            // infoWindow.setPosition(pos);
+            // infoWindow.setContent("This is you");
+            // infoWindow.open(map);
             map.setCenter(pos);
           },
           function() {
