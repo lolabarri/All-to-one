@@ -1,13 +1,12 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("IronGenerator JS imported successfully!");
 
     var map, infoWindow;
     function initMap() {
       map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 15
+        center: { lat: 40.4387765, lng: -3.6949021 },
+        zoom: 13
       });
       infoWindow = new google.maps.InfoWindow();
 
@@ -46,6 +45,37 @@ document.addEventListener(
     }
 
     initMap();
+
+    // Putting cars on the map
+
+    function getCar() {
+      axios
+        .get("http://localhost:3000/cars/api")
+        .then(response => {
+          placeCars(response.data.cars);
+        })
+        .catch(error => {
+          next(error);
+        });
+    };
+
+    const markers = [];
+    function placeCars(cars) {
+      cars.forEach(function(car) {
+        const center = {
+          lat: car.location.coordinates[1],
+          lng: car.location.coordinates[0]
+        };
+        const pin = new google.maps.Marker({
+          position: center,
+          map: map,
+          title: car.carMake
+        });
+        markers.push(pin);
+      });
+    };
+
+    getCar();
   },
   false
 );

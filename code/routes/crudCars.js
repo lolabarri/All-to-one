@@ -20,7 +20,7 @@ router.post("/new", (req, res, next) => {
     owner: "No one",
     insurance: req.body.insurance,
     other: req.body.other,
-    location: location
+    location: {type: "Point", coordinates: [-3.7119868, 40.4925889]}
   });
 
   newCar.save(error => {

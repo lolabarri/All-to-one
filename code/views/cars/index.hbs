@@ -5,12 +5,14 @@
     <ul>
         {{#each cars}}
         <li>
-            <a href="/cars/{{ this._id}}">{{ this.carMake}}</a>
+            <a href="/cars/{{this._id}}">{{this.carMake}}</a>
             |
-            <a href="/cars/{{ this._id}}/delete">Delete</a>
+            <a href="/cars/{{this._id}}/delete">Delete</a>
         </li>
         {{/each }}
     </ul>
-    {{!-- add map here --}}
+    <div id="map"></div>
 </div>
-{{!-- added your scripts here --}}
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzm6wO-fMPB7-afq0yzoT8jNiboqGaIm0"></script>
