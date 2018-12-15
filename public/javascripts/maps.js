@@ -1,7 +1,6 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-
     var map, infoWindow;
     function initMap() {
       map = new google.maps.Map(document.getElementById("map"), {
@@ -57,7 +56,7 @@ document.addEventListener(
         .catch(error => {
           next(error);
         });
-    };
+    }
 
     const markers = [];
     function placeCars(cars) {
@@ -73,9 +72,40 @@ document.addEventListener(
         });
         markers.push(pin);
       });
-    };
+    }
 
     getCar();
   },
   false
 );
+
+// $(document).ready(function() {
+//   $("#save").on("click", function() {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(function(position) {
+//         var center = {
+//           lat: position.coords.latitude,
+//           lng: position.coords.longitude
+//         };
+//         const updateInfo = {
+//           name: document.getElementById("update-name-input").value,
+//           occupation: document.getElementById("update-occupation-input").value,
+//           weapon: document.getElementById("update-weapon-input").value
+//         };
+//         const carId = document.getElementById("carName").value;
+
+//         axios
+//           .patch(
+//             `localhost:3000/cars/${carId}`,
+//             updateInfo
+//           )
+//           .then(response => {
+//             console.log("Update SUCCESS!");
+//           })
+//           .catch(error => {
+//             console.log(error);
+//           });
+//       });
+//     }
+//   });
+// });

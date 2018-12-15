@@ -27,7 +27,7 @@ router.post("/new", (req, res, next) => {
     licensePlate: req.body.licensePlate,
     fuel: req.body.fuel,
     purchaseYear: req.body.purchaseYear,
-    owner: "No one",
+    owner: req.user,
     insurance: req.body.insurance,
     other: req.body.other,
     location: {type: "Point", coordinates: [-3.7119868, 40.4925889]}
@@ -37,7 +37,7 @@ router.post("/new", (req, res, next) => {
     if (error) {
       next(error);
     } else {
-      res.redirect("../users/dashboard");
+      res.redirect("/cars");
     }
   });
 });
@@ -73,9 +73,10 @@ router.post("/:car_id", (req, res, next) => {
       car.model = req.body.model;
       car.licensePlate = req.body.licensePlate;
       car.fuel = req.body.fuel;
+      car.purchaseYear = req.body.purchaseYear;
       car.insurance = req.body.insurance;
       car.other = req.body.other;
-      restaurant.save(error => {
+      car.save(error => {
         if (error) {
           next(error);
         } else {
@@ -85,6 +86,8 @@ router.post("/:car_id", (req, res, next) => {
     }
   });
 });
+
+// Hacer nuevo post para actualizar la posición de los coches según la actual
 
 // DELETE => remove the car from the DB
 router.get("/:car_id/delete", (req, res, next) => {

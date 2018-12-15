@@ -7,4 +7,12 @@
 <p>Insurance: {{ car.insurance}}</p>
 <p>Other: {{ car.other}}</p>
 <a href="/cars/{{car._id}}/edit">Edit this car</a>
+<br>
 <a href="/cars">Go back to the list</a>
+
+<div class="buttons-container">
+  <button id="save" class="btn save">Save current location</button>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzm6wO-fMPB7-afq0yzoT8jNiboqGaIm0"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
