@@ -23,4 +23,26 @@ router.get("/:user_id", (req, res, next) => {
     });
   });
 
+  router.get("/", (req, res, next) => {
+    User.find()
+      .then(usersFromDB => {
+        res.render("users/index", { users: usersFromDB });
+      })
+      .catch(error => {
+        next(error);
+      });
+  });
+
+// router.get("/:user_id", (req, res, next) => {
+//   let userId = req.params.user_id;
+//   User.findById(userId)
+//     .then(user => {
+//       if (!user) {
+//         return res.status(404).render("not-found");
+//       }
+//       res.render("users/dashboard", { user: user });
+//     })
+//     .catch(next);
+// });
+
 module.exports = router;
