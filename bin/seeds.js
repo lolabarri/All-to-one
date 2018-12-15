@@ -14,7 +14,7 @@ const bcryptSalt = 10;
 
 mongoose
   .connect(
-    process.ENV.MONGODB_URI,
+    'mongodb://localhost:27017/all-to-one',
     { useNewUrlParser: true }
   )
   .then(x => {
