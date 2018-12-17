@@ -5,8 +5,7 @@ const tripSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
     car: { type: Schema.Types.ObjectId, ref: "Car" },
-    startTime: Date,
-    endTime: Date
+    isFree: {type: Boolean}
   },
   {
     timestamps: {

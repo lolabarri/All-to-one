@@ -19,8 +19,6 @@ router.get("/new", (req, res, next) => {
 
 // POST => to create new car and save it to the DB
 router.post("/new", (req, res, next) => {
-  // add location object here
-
   const newCar = new Car({
     carMake: req.body.carMake,
     model: req.body.model,

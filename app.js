@@ -84,9 +84,11 @@ const index = require("./routes/index");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const cars = require("./routes/cars");
+const trips = require("./routes/trips");
 app.use("/", index);
 app.use("/users", users);
 app.use("/auth", auth);
 app.use("/cars", cars);
+app.use("/trips", trips);
 
 module.exports = app;
