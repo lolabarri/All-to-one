@@ -8,7 +8,6 @@ router.post("/new", (req, res, next) => {
   const newTrip = new Trip({
     user: req.user,
     car: req.car,
-    isFree: false
   });
 
   newTrip

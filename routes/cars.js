@@ -28,7 +28,8 @@ router.post("/new", (req, res, next) => {
     owner: req.user,
     insurance: req.body.insurance,
     other: req.body.other,
-    location: {type: "Point", coordinates: [-3.7119868, 40.4925889]}
+    location: {type: "Point", coordinates: [-3.7119868, 40.4925889]},
+    isFree: true
   });
 
   newCar.save(error => {
@@ -86,6 +87,8 @@ router.post("/:car_id", (req, res, next) => {
 });
 
 // Hacer nuevo post para actualizar la posición de los coches según la actual
+router.post
+// Hacer nuevo post para cambiar isFree a true/false
 
 // DELETE => remove the car from the DB
 router.get("/:car_id/delete", (req, res, next) => {

@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const tripSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    car: { type: Schema.Types.ObjectId, ref: "Car" },
-    isFree: {type: Boolean}
+    car: { type: Schema.Types.ObjectId, ref: "Car" }
   },
   {
     timestamps: {
