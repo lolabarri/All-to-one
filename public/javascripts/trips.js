@@ -16,3 +16,13 @@ const finishTrip = () => {
     document.getElementById("finishTrip").style.display="none";
   })
 };
+
+const saveLocation = car => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      axios.post(`/trips/location/${car}`, {location: center}).then(car => console.log(car))
+})}}
