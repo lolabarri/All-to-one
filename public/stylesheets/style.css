@@ -28,6 +28,9 @@ input {
   border-radius: 5px;
   padding: 5px; }
 
+#finishTrip {
+  display: none; }
+
 #insurance {
   width: 30vw; }
 

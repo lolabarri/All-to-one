@@ -5,9 +5,9 @@ const router = express.Router();
 const Car = require("../models/Car");
 
 router.use((req, res, next) => {
-  if(req.user) {
-      next();
-      return;
+  if (req.user) {
+    next();
+    return;
   }
   res.redirect("/auth/login");
 });
@@ -28,7 +28,7 @@ router.post("/new", (req, res, next) => {
     owner: req.user,
     insurance: req.body.insurance,
     other: req.body.other,
-    location: {type: "Point", coordinates: [-3.7119868, 40.4925889]},
+    location: { type: "Point", coordinates: [-3.7119868, 40.4925889] },
     isFree: true
   });
 
@@ -87,7 +87,9 @@ router.post("/:car_id", (req, res, next) => {
 });
 
 // Hacer nuevo post para actualizar la posición de los coches según la actual
-router.post
+
+
+
 // Hacer nuevo post para cambiar isFree a true/false
 
 // DELETE => remove the car from the DB
@@ -141,7 +143,7 @@ router.get("/api/:id", (req, res, next) => {
 router.get("/:car_id", (req, res, next) => {
   let carId = req.params.car_id;
   Car.findById(carId)
-    .populate( {path: 'owner', select: 'name' })
+    .populate({ path: "owner", select: "name" })
     .then(car => {
       if (!car) {
         return res.status(404).render("not-found");

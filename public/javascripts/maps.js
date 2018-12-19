@@ -1,5 +1,6 @@
 document.addEventListener(
   "DOMContentLoaded",
+
   () => {
     var map, infoWindow;
     function initMap() {
@@ -17,10 +18,6 @@ document.addEventListener(
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
-            // infoWindow.setPosition(pos);
-            // infoWindow.setContent("This is you");
-            // infoWindow.open(map);
             map.setCenter(pos);
           },
           function() {
@@ -54,7 +51,7 @@ document.addEventListener(
           placeCars(response.data.cars);
         })
         .catch(error => {
-          next(error);
+          console.log(error);
         });
     }
 
@@ -78,34 +75,3 @@ document.addEventListener(
   },
   false
 );
-
-// $(document).ready(function() {
-//   $("#save").on("click", function() {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(function(position) {
-//         var center = {
-//           lat: position.coords.latitude,
-//           lng: position.coords.longitude
-//         };
-//         const updateInfo = {
-//           name: document.getElementById("update-name-input").value,
-//           occupation: document.getElementById("update-occupation-input").value,
-//           weapon: document.getElementById("update-weapon-input").value
-//         };
-//         const carId = document.getElementById("carName").value;
-
-//         axios
-//           .patch(
-//             `localhost:3000/cars/${carId}`,
-//             updateInfo
-//           )
-//           .then(response => {
-//             console.log("Update SUCCESS!");
-//           })
-//           .catch(error => {
-//             console.log(error);
-//           });
-//       });
-//     }
-//   });
-// });
