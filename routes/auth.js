@@ -49,28 +49,17 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-// 
-
-router.get('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err); }
-    if (!user) { return res.redirect('/login'); }
-    req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.redirect('/users/' + user._id);
-    });
-  })(req, res, next);
+router.get("/login", (req, res, next) => {
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/cars",
-    failureRedirect: "/auth/login",
-    failureFlash: true,
-    passReqToCallback: true
-  })
-);
+router.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.redirect('/users/' + req.user._id);
+  });
 
 router.get("/logout", (req, res) => {
   req.logout();
