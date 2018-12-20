@@ -28,6 +28,7 @@ router.post("/start/:car_id", (req, res, next) => {
     .catch(err => console.log(err));
 });
 
+// Updates the car coordinates
 router.post("/location/:car_id", (req, res, next) => {
   console.log("hola")
   let position = {
@@ -62,6 +63,18 @@ router.post("/finish/:trip_id", (req, res, next) => {
         });
     })
     .catch(err => console.log(err));
+});
+
+router.get("/", (req, res, next) => {
+  Trip.find()
+    .populate({path: "user", select: "name"})
+    .populate({path: "car", select: "carMake"})
+    .then(tripsFromDB => {
+      res.render("trips/index", { trips: tripsFromDB });
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 module.exports = router;

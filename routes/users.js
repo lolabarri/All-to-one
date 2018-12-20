@@ -12,7 +12,6 @@ router.use((req, res, next) => {
 });
 
 
-
 router.get("/:user_id", (req, res, next) => {
     User.findById(req.params.user_id, (error, user) => {
       if (error) {

@@ -1,0 +1,19 @@
+<div class="info">
+    <h3>List of all trips</h3>
+    <br>
+    <ul>
+        {{#each trips}}
+        <li>
+            <a href="/trips/{{this._id}}">{{this.car}}</a>
+        </li>
+        <li>
+            <a href="/trips/{{this._id}}">{{this.user}}</a>
+        </li>
+        <li>
+            <a href="/trips/{{this._id}}">{{this.created_at}}</a>
+        </li>
+        <li>
+            <a href="/trips/{{this._id}}">{{this.updated_at}}</a>
+        </li>
+        {{/each }}
+    </ul>

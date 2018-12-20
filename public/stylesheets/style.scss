@@ -1,3 +1,5 @@
+// background: #212121;
+
 * {
   padding: 0;
   margin: 0;
@@ -50,7 +52,7 @@ input {
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
 body {
-	background: #212121;
+	background: white;
 	font-size:22px;
 	line-height: 32px;
 	color: #ffffff;
@@ -63,22 +65,22 @@ body {
 h1 {
 	font-size: 60px;
 	text-align: center;
-	color: #FFF;
+	color: #254441;
 }	
 
 h3 {
 	font-size: 30px;
 	line-height: 34px;
 	text-align: center;
-	color: #FFF;
+	color: #254441
 }
 
 h3 a {
-	color: #FFF;
+	color: #254441
 }
 
 a {
-	color: #FFF;
+	color: #254441;
 }
 
 h1 {
@@ -101,6 +103,15 @@ p {
 .toggle,
 [id^=drop] {
 	display: none;
+}
+
+.landingPic {
+	display: block;
+	margin: auto;
+}
+
+.logo {
+	height: 5vh;
 }
 
 /* Giving a background-color to the nav container. */

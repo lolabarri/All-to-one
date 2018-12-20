@@ -86,12 +86,6 @@ router.post("/:car_id", (req, res, next) => {
   });
 });
 
-// Hacer nuevo post para actualizar la posición de los coches según la actual
-
-
-
-// Hacer nuevo post para cambiar isFree a true/false
-
 // DELETE => remove the car from the DB
 router.get("/:car_id/delete", (req, res, next) => {
   Car.remove({ _id: req.params.car_id }, function(error, car) {
@@ -127,19 +121,6 @@ router.get("/api/:id", (req, res, next) => {
 });
 
 // GET => get the details of one car
-
-// router.get("/:car_id", (req, res, next) => {
-//   Car.findById(req.params.car_id, (error, car) => {
-//     if (error) {
-//       next(error);
-//     } else {
-//       res.render("cars/show", { car: car });
-//     }
-//   });
-// });
-
-// GET => get the details of one car
-
 router.get("/:car_id", (req, res, next) => {
   let carId = req.params.car_id;
   Car.findById(carId)
