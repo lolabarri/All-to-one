@@ -1,16 +1,14 @@
 <div class="info">
     <h3>List of all cars</h3>
     <a href="/cars/new">Create new car</a>
-    <ul>
+    <br>
+    <br>
         {{#each cars}}
-        <li>
             <a href="/cars/{{this._id}}">{{this.carMake}}</a>
-            |
+
             <a href="/cars/{{this._id}}/delete">Delete</a>
-        </li>
+            <br>
         {{/each }}
-    </ul>
+
     <div id="map"></div>
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzm6wO-fMPB7-afq0yzoT8jNiboqGaIm0"></script>

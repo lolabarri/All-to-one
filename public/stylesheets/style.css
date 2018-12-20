@@ -37,11 +37,32 @@ input {
 #other {
   width: 23vw; }
 
+#tripsTable {
+  border-collapse: collapse;
+  width: 100%; }
+
+#tripsTable td, #tripsTable th {
+  border: 1px solid #ddd;
+  padding: 8px; }
+
+#tripsTable tr:nth-child(even) {
+  background-color: #f2f2f2; }
+
+#tripsTable tr:hover {
+  background-color: #ddd; }
+
+#tripsTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #254441;
+  color: white; }
+
 body {
   background: white;
   font-size: 22px;
   line-height: 32px;
-  color: #ffffff;
+  color: #254441;
   margin: 0;
   padding: 0;
   word-wrap: break-word !important;

@@ -67,11 +67,15 @@ document.addEventListener(
           map: map,
           title: car.carMake
         });
+        google.maps.event.addListener(pin, "click", function() {
+          infoWindow.setContent(car.carMake);
+          infoWindow.open(map, pin)})
         markers.push(pin);
       });
     }
 
     getCar();
+    
   },
   false
 );

@@ -1,19 +1,20 @@
 <div class="info">
     <h3>List of all trips</h3>
     <br>
-    <ul>
+    <table id="tripsTable">
+        <tr>
+            <th>CAR</th>
+            <th>USER</th>
+            <th>START TIME</th>
+            <th>FINISH TIME</th>
+        </tr>
         {{#each trips}}
-        <li>
-            <a href="/trips/{{this._id}}">{{this.car}}</a>
-        </li>
-        <li>
-            <a href="/trips/{{this._id}}">{{this.user}}</a>
-        </li>
-        <li>
-            <a href="/trips/{{this._id}}">{{this.created_at}}</a>
-        </li>
-        <li>
-            <a href="/trips/{{this._id}}">{{this.updated_at}}</a>
-        </li>
+        <tr>
+            <td>{{this.car}}</td>
+            <td>{{this.user}}</td>
+            <td>{{this.created_at}}</td>
+            <td>{{this.updated_at}}</td>
+        </tr>
         {{/each }}
-    </ul>
+
+    </table>
