@@ -10,10 +10,10 @@
         </tr>
         {{#each trips}}
         <tr>
-            <td>{{this.car}}</td>
-            <td>{{this.user}}</td>
-            <td>{{this.created_at}}</td>
-            <td>{{this.updated_at}}</td>
+            <td>{{this.car.carMake}}</td>
+            <td>{{this.user.name}}</td>
+            <td>{{moment date=this.created_at format="MMMM Do YYYY, h:mm:ss a"}}</td>
+            <td>{{moment date=this.updated_at format="MMMM Do YYYY, h:mm:ss a"}}</td>
         </tr>
         {{/each }}
 

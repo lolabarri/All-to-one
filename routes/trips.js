@@ -5,6 +5,7 @@ const router = express.Router();
 const Trip = require("../models/Trip");
 const Car = require("../models/Car");
 
+
 // Creates a new trip and updates car "isFree" to false
 router.post("/start/:car_id", (req, res, next) => {
   Car.findByIdAndUpdate(req.params.car_id, { isFree: false }, { new: true })
@@ -70,6 +71,7 @@ router.get("/", (req, res, next) => {
     .populate({path: "user", select: "name"})
     .populate({path: "car", select: "carMake"})
     .then(tripsFromDB => {
+      console.log(tripsFromDB[0].created_at)
       res.render("trips/index", { trips: tripsFromDB });
     })
     .catch(error => {
