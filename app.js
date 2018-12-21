@@ -69,7 +69,7 @@ hbs.registerHelper("ifUndefined", (value, options) => {
 });
 
 // default value for title local
-app.locals.title = "All to one";
+app.locals.title = "All for one";
 
 // Enable authentication using session + passport
 app.use(
