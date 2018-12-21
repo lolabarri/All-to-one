@@ -5,6 +5,13 @@ const router = express.Router();
 const Trip = require("../models/Trip");
 const Car = require("../models/Car");
 
+router.use((req, res, next) => {
+  if (req.user) {
+    next();
+    return;
+  }
+  res.redirect("/auth/login");
+});
 
 // Creates a new trip and updates car "isFree" to false
 router.post("/start/:car_id", (req, res, next) => {

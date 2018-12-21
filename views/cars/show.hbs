@@ -1,4 +1,8 @@
 <h3 id="carName" data-id="{{ car.id}}">{{ car.carMake}}</h3>
+
+<img class="profilePic" src="https://loremflickr.com/580/380/car">
+
+<br>
 <p>Model: {{ car.model}}</p>
 <p>License plate: {{ car.licensePlate}}</p>
 <p>Fuel: {{ car.fuel}}</p>
@@ -7,12 +11,16 @@
 <p>Insurance: {{ car.insurance}}</p>
 <p>Other: {{ car.other}}</p>
 <p id="isFree">Is Free?: {{ car.isFree}}</p>
+<br>
 <a href="/cars/{{car._id}}/edit">Edit this car</a>
 <br>
 <a href="/cars">Go back to the list</a>
 
+<br>
+
+
 <div class="buttons-container">
-  <button type="submit" id="newTrip" class="btn save" carId="{{car.id}}" onclick="startTrip('{{car.id}}')">Start trip</button>
+  <button type="submit" id="newTrip" class="btnStart" carId="{{car.id}}" onclick="startTrip('{{car.id}}')">Start trip</button>
 </div>
 <div class="buttons-container">
-  <button type="submit" id="finishTrip" class="btn save" carId="{{car.id}}" onclick="finishTrip('{{car.id}}')">Finish trip</button></div>
+  <button type="submit" id="finishTrip" class="btnStop" carId="{{car.id}}" onclick="finishTrip('{{car.id}}')">Finish trip</button></div>

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
-
 router.use((req, res, next) => {
   if(req.user) {
       next();
@@ -10,7 +9,6 @@ router.use((req, res, next) => {
   }
   res.redirect("/auth/login");
 });
-
 
 router.get("/:user_id", (req, res, next) => {
     User.findById(req.params.user_id, (error, user) => {

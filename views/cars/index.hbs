@@ -1,14 +1,18 @@
 <div class="info">
     <h3>List of all cars</h3>
+    <div id="map"></div>
+
+    <br>
     <a href="/cars/new">Create new car</a>
     <br>
     <br>
-        {{#each cars}}
-            <a href="/cars/{{this._id}}">{{this.carMake}}</a>
 
-            <a href="/cars/{{this._id}}/delete">Delete</a>
-            <br>
-        {{/each }}
+    {{#each cars}}
+    <a href="/cars/{{this._id}}">{{this.carMake}}</a>
 
-    <div id="map"></div>
+    <a href="/cars/{{this._id}}/delete">Delete</a>
+    <br>
+    {{/each }}
+    <br>
+
 </div>

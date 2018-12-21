@@ -2,9 +2,9 @@
 
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="name">Name and last name</label>
-  <input id="name" type="text" name="name" placeholder="Jon Snow">
+  <input id="name" type="text" name="name" placeholder="Coqueto Poliqueto">
   <label for="email">Email</label>
-  <input id="email" type="text" name="email" placeholder="jonsnow@thrones.com">
+  <input id="email" type="text" name="email" placeholder="coqueto@poliqueto.com">
 
   <br><br>
 
@@ -12,8 +12,8 @@
   <input id="password" type="password" name="password" placeholder="Your password">
   <label for="dateBirth">Date of birth</label>
   <input id="dateBirth" type="date" name="dateBirth">
-  <label for="yearsExperience">Years of experience</label>
-  <input id="yearsExperience" type="text" name="yearsExperience" placeholder="3">
+  <label for="yearsExperience">Date of driving license</label>
+  <input id="yearsExperience" type="date" name="yearsExperience" placeholder="">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>

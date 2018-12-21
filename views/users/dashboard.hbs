@@ -1,6 +1,18 @@
 <h3 id="userName" data-id="{{ user.id}}">{{user.name}}</h3>
-<p>Date of birth: {{user.dateBirth}}</p>
-<p>Date of obtaining driver license: {{user.yearsExperience}}</p>
+
+<img class="profilePic" src="https://loremflickr.com/320/240/person">
+
+<br>
+
+<p>Date of birth: {{moment date=user.dateBirth format="DD/MM/YYYY"}}</p>
+<p>Date of obtaining driver license: {{moment date=user.yearsExperience format="DD/MM/YYYY"}}</p>
+
+<br>
+
 <a href="/cars/new">Add a new car</a>
 <br>
 <a href="/auth/logout">Logout</a>
+
+
+{{!-- <img src="https://api.adorable.io/avatars/272/abott@adorable.pngCopy to Clipboard
+"> --}}

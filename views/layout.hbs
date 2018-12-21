@@ -12,57 +12,18 @@
 <body>
 
   <nav>
-    {{!-- <div id="logo"><img class="logo" src="https://oyeradio.eu/wp-content/uploads/2016/03/carsharing.jpeg"></div> --}}
 
     <label for="drop" class="toggle">Menu</label>
     <input type="checkbox" id="drop" />
     <ul class="menu">
       <li><a href="/">Home</a></li>
-      {{!-- <li>
-        <!-- First Tier Drop Down -->
-        <label for="drop-1" class="toggle">WordPress +</label>
-        <a href="#">WordPress</a>
-        <input type="checkbox" id="drop-1" />
-        <ul>
-          <li><a href="#">Themes and stuff</a></li>
-          <li><a href="#">Plugins</a></li>
-          <li><a href="#">Tutorials</a></li>
-        </ul>
-
-      </li>
-      <li>
-
-        <!-- First Tier Drop Down -->
-        <label for="drop-2" class="toggle">Web Design +</label>
-        <a href="#">Web Design</a>
-        <input type="checkbox" id="drop-2" />
-        <ul>
-          <li><a href="#">Resources</a></li>
-          <li><a href="#">Links</a></li>
-          <li>
-
-            <!-- Second Tier Drop Down -->
-            <label for="drop-3" class="toggle">Tutorials +</label>
-            <a href="#">Tutorials</a>
-            <input type="checkbox" id="drop-3" />
-
-            <ul>
-              <li><a href="#">HTML/CSS</a></li>
-              <li><a href="#">jQuery</a></li>
-              <li><a href="#">Other</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#">Graphic Design</a></li>
-      --}}
       <li><a href="/cars">Cars</a></li>
       <li><a href="/users">Users</a></li>
-      <li><a href="/auth/signup">Signup</a></li>
       <li><a href="/trips">Trips</a></li>
       {{#if user}}
-      <li><a href="/">Profile</a></li>
+      <li><a href="/users/{{user._id}}">Profile</a></li>
       {{else}}
+      <li><a href="/auth/signup">Signup</a></li>
       <li><a href="/auth/login">Login</a></li>
       <li><a href="/auth/logout">Logout</a></li>
       {{/if}}
@@ -80,7 +41,6 @@
   <script src="/javascripts/trips.js"></script>
   <script src="/javascripts/script.js"></script>
   <script src="/javascripts/maps.js"></script>
-  <script src="/javascripts/api.js"></script>
 </body>
 
 </html>

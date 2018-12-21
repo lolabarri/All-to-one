@@ -56,10 +56,17 @@ router.get("/login", (req, res, next) => {
 router.post('/login',
   passport.authenticate('local'),
   function(req, res) {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
     res.redirect('/users/' + req.user._id);
   });
+
+// router.post(
+//   "/login",
+//   passport.authenticate("local", {
+//     successRedirect: "/users",
+//     failureRedirect: "/login",
+//     failureFlash: true
+//   })
+// );
 
 router.get("/logout", (req, res) => {
   req.logout();

@@ -1,12 +1,15 @@
 <div class="info">
     <h3>List of all users</h3>
-    <ul>
-        {{#each users}}
-        <li>
-            <a href="/users/{{this._id}}">{{this.name}}</a>
-            |
-            <a href="/users/{{this._id}}/delete">Delete</a>
-        </li>
-        {{/each }}
-    </ul>
+<img class="family" src="https://lh3.googleusercontent.com/dgKQo9WsUHVm4YQZBkIMVANMuEnxJnah7OGBjbONH_GaFN6w7zvw_fPnO9Zqebvri1xQhaeX8o2yBPc-Kw_7bn8afPtWqaOIipO02I-X7CnjI7O2CjVNXx1RVPCxpPVuKEJoKyDSr98K9gnAkU-SlWX1ZfIxhHd7uRT22v2GDQpCZv3SBPtITxJRy_pcLwd-6b-JgcIeIJ2UvTl3w59TGM_1Y1qkZyVQDluAM4akrj0gvOmfwP0-qXQ9k8UxgxtHWYV-7w_QP4NnkW6vhdAdOk3g_GpsPDyYtukZMJ2nDNpoER17gOGBJ-OGGuEIqUkVIx2euizsYKFyjPb1i8PIf1qk2rJepC5My26wigMQ3SigSCp1q9vio2ImyOu_5drKxBdVcwJT96lUBO2_emKQRj3Boq7ifFDT1IKwnZ7lwDcYzFyWEmNCOOcp9PKHoyqdGfTlQ9Mtbj5Yx64ZGAeEBh6mStIgKNvqK3UjQo1kzNHxV6ZhLPVsyc3q6W1nY0MWhoDSVdsSTfzEmdH6B6vM0xTU0ckExQjIcVeDnoiYwHUHGZ35Ahrq3l-B5lxkKdknUunsvBKRka-oQIg4ClP2LhcChJoJ5mHppStOCvSx97LJxPrYADKDMQAWrnzrBx4xVTFeuNzAJwaUmhJSD8-vdaKlmu2DUXcWhhARRfJAWLXvA7vut4sdO3AW0TOgZ7NU8Qo8ou4AeG3nRUJnxTI=w919-h689-no">
+
+    <br>
+    {{#each users}}
+
+    <a href="/users/{{this._id}}">{{this.name}}</a>
+    |
+    <a href="/users/{{this._id}}/delete">Delete</a>
+    <br>
+
+    {{/each }}
+
 </div>
