@@ -46,7 +46,7 @@ document.addEventListener(
 
     function getCar() {
       axios
-        .get("http://localhost:3000/cars/api")
+        .get("https://all-for-one-2018.herokuapp.com/cars/api")
         .then(response => {
           placeCars(response.data.cars);
         })
