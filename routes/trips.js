@@ -4,7 +4,6 @@ const express = require("express");
 const router = express.Router();
 const Trip = require("../models/Trip");
 const Car = require("../models/Car");
-const User = require("../models/User");
 
 router.use((req, res, next) => {
   if (req.user) {
@@ -84,16 +83,6 @@ router.get("/", (req, res, next) => {
     .catch(error => {
       next(error);
     });
-});
-
-router.get("/users/:user_id", (req, res, next) => {
-  User.findById(req.params.user_id, (error, user) => {
-    if (error) {
-      next(error);
-    } else {
-      res.render("../users/dashboard", { user: user });
-    }
-  });
 });
 
 module.exports = router;
