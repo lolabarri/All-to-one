@@ -18,15 +18,16 @@
     <ul class="menu">
       <li><a href="/">Home</a></li>
       <li><a href="/cars">Cars</a></li>
-      <li><a href="/users">Users</a></li>
+      <li>
       <li><a href="/trips">Trips</a></li>
-      {{#if user}}
-      <li><a href="/users/{{user._id}}">Profile</a></li>
+      {{#ifCond user "||" users "||" car "||" cars "||" trips}}
+      <li><a href="/users/{{this._id}}">Profile</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
       {{else}}
       <li><a href="/auth/signup">Signup</a></li>
       <li><a href="/auth/login">Login</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-      {{/if}}
+      {{/ifCond}}
+      
     </ul>
   </nav>
 

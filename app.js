@@ -68,6 +68,34 @@ hbs.registerHelper("ifUndefined", (value, options) => {
   }
 });
 
+hbs.registerHelper('ifCond', function (v1, operator, v2, operator, v3, operator, v4, operator, v5, options) {
+
+  switch (operator) {
+      case '==':
+          return (v1 == v2) ? options.fn(this) : options.inverse(this);
+      case '===':
+          return (v1 === v2) ? options.fn(this) : options.inverse(this);
+      case '!=':
+          return (v1 != v2) ? options.fn(this) : options.inverse(this);
+      case '!==':
+          return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+      case '<':
+          return (v1 < v2) ? options.fn(this) : options.inverse(this);
+      case '<=':
+          return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+      case '>':
+          return (v1 > v2) ? options.fn(this) : options.inverse(this);
+      case '>=':
+          return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+      case '&&':
+          return (v1 && v2) ? options.fn(this) : options.inverse(this);
+      case '||':
+          return (v1 || v2 || v3 || v4 || v5) ? options.fn(this) : options.inverse(this);
+      default:
+          return options.inverse(this);
+  }
+});
+
 // default value for title local
 app.locals.title = "All for one";
 

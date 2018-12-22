@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 const Trip = require("../models/Trip");
 const Car = require("../models/Car");
+const User = require("../models/User");
 
 router.use((req, res, next) => {
   if (req.user) {
@@ -38,7 +39,6 @@ router.post("/start/:car_id", (req, res, next) => {
 
 // Updates the car coordinates
 router.post("/location/:car_id", (req, res, next) => {
-  console.log("hola")
   let position = {
     type: "Point",
     coordinates: [req.body.location.lng, req.body.location.lat]
@@ -84,6 +84,16 @@ router.get("/", (req, res, next) => {
     .catch(error => {
       next(error);
     });
+});
+
+router.get("/users/:user_id", (req, res, next) => {
+  User.findById(req.params.user_id, (error, user) => {
+    if (error) {
+      next(error);
+    } else {
+      res.render("../users/dashboard", { user: user });
+    }
+  });
 });
 
 module.exports = router;
