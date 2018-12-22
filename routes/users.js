@@ -30,16 +30,14 @@ router.get("/:user_id", (req, res, next) => {
       });
   });
 
-// router.get("/:user_id", (req, res, next) => {
-//   let userId = req.params.user_id;
-//   User.findById(userId)
-//     .then(user => {
-//       if (!user) {
-//         return res.status(404).render("not-found");
-//       }
-//       res.render("users/dashboard", { user: user });
-//     })
-//     .catch(next);
-// });
+  router.get("/:user_id/delete", (req, res, next) => {
+    User.remove({ _id: req.params.user_id }, function(error, car) {
+      if (error) {
+        next(error);
+      } else {
+        res.redirect("/users");
+      }
+    });
+  });
 
 module.exports = router;
